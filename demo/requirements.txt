@@ -1,0 +1,10 @@
+scikit-learn
+scipy
+umap-learn
+ftfy
+regex
+matplotlib
+tqdm
+datasets
+pillow
+numpy

@@ -1,0 +1,37 @@
+seed 0 Linear (Univfd-like)   loss=0.3439 AP in-dist=0.967 unseen mean=0.636
+seed 0 VIB beta=0             loss=0.0647 AP in-dist=0.959 unseen mean=0.660
+seed 0 VIB beta=0.0001        loss=0.0649 AP in-dist=0.960 unseen mean=0.656
+seed 0 VIB beta=0.001         loss=0.0989 AP in-dist=0.963 unseen mean=0.650
+seed 0 VIB beta=0.01          loss=0.3253 AP in-dist=0.963 unseen mean=0.659
+seed 0 VIB beta=0.1           loss=1.4979 AP in-dist=0.964 unseen mean=0.615
+seed 1 Linear (Univfd-like)   loss=0.3392 AP in-dist=0.943 unseen mean=0.619
+seed 1 VIB beta=0             loss=0.0378 AP in-dist=0.959 unseen mean=0.626
+seed 1 VIB beta=0.0001        loss=0.0542 AP in-dist=0.957 unseen mean=0.641
+seed 1 VIB beta=0.001         loss=0.0997 AP in-dist=0.961 unseen mean=0.615
+seed 1 VIB beta=0.01          loss=0.3140 AP in-dist=0.963 unseen mean=0.620
+seed 1 VIB beta=0.1           loss=1.3921 AP in-dist=0.950 unseen mean=0.650
+seed 2 Linear (Univfd-like)   loss=0.3384 AP in-dist=0.919 unseen mean=0.619
+seed 2 VIB beta=0             loss=0.0383 AP in-dist=0.927 unseen mean=0.666
+seed 2 VIB beta=0.0001        loss=0.0551 AP in-dist=0.935 unseen mean=0.647
+seed 2 VIB beta=0.001         loss=0.1159 AP in-dist=0.935 unseen mean=0.648
+seed 2 VIB beta=0.01          loss=0.2929 AP in-dist=0.939 unseen mean=0.634
+seed 2 VIB beta=0.1           loss=1.3805 AP in-dist=0.935 unseen mean=0.615
+
+=== AP (%), mean +- std qua 3 seed ===
+model                      In-dist (SD           ADM        BigGAN         GLIDE    Midjourney          VQDM        Wukong   Unseen mean
+Linear (Univfd-like)        94.3+-2.0    47.8+-2.4    38.9+-1.7    63.6+-4.2    86.4+-2.0    48.0+-3.2    90.0+-1.5    62.5+-0.8
+VIB beta=0                  94.8+-1.5    49.3+-3.0    42.3+-3.1    66.9+-3.5    87.9+-0.2    51.5+-2.1    92.5+-1.0    65.1+-1.8
+VIB beta=0.0001             95.1+-1.1    48.4+-0.6    42.5+-3.0    70.0+-0.7    85.3+-1.7    51.2+-1.8    91.5+-1.4    64.8+-0.6
+VIB beta=0.001              95.3+-1.3    48.7+-3.9    41.9+-1.2    65.6+-2.6    85.6+-2.7    51.4+-2.2    89.4+-2.1    63.8+-1.6
+VIB beta=0.01               95.5+-1.1    49.7+-0.3    41.8+-2.1    64.8+-3.0    84.1+-2.2    52.0+-3.8    90.2+-2.1    63.8+-1.6
+VIB beta=0.1                95.0+-1.2    47.3+-1.8    41.0+-0.9    62.7+-3.3    83.5+-0.5    51.6+-1.2    89.9+-3.5    62.7+-1.7
+
+=== ACC (%), mean +- std qua 3 seed ===
+model                      In-dist (SD           ADM        BigGAN         GLIDE    Midjourney          VQDM        Wukong   Unseen mean
+Linear (Univfd-like)        87.5+-1.8    46.9+-0.5    44.2+-1.3    55.6+-1.8    79.0+-0.8    46.9+-2.6    84.6+-1.6    59.5+-1.0
+VIB beta=0                  88.3+-3.1    49.0+-2.5    45.0+-3.7    58.8+-1.8    79.8+-2.1    49.6+-1.3    86.9+-1.8    61.5+-1.6
+VIB beta=0.0001             88.3+-1.6    50.4+-2.4    45.0+-2.3    62.1+-0.3    78.5+-3.9    50.0+-1.5    85.4+-0.8    61.9+-0.7
+VIB beta=0.001              88.3+-1.6    47.3+-3.6    44.6+-2.4    59.2+-2.8    77.7+-2.1    49.0+-1.6    84.6+-2.4    60.4+-2.1
+VIB beta=0.01               89.2+-1.6    48.5+-0.6    43.1+-3.2    58.1+-1.8    77.5+-0.5    49.0+-3.1    83.5+-0.8    60.0+-1.1
+VIB beta=0.1                87.1+-3.6    46.2+-0.5    44.0+-1.3    58.5+-4.6    77.9+-0.6    48.1+-2.8    84.8+-1.8    59.9+-1.8
+saved results.png, results.json

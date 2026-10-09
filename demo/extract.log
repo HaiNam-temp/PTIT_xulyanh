@@ -1,0 +1,36 @@
+C:\Users\HAINAM\AppData\Roaming\Python\Python312\site-packages\torch\jit\_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+  warnings.warn(
+32/1040  37s
+64/1040  74s
+96/1040  109s
+128/1040  147s
+160/1040  182s
+192/1040  227s
+224/1040  270s
+256/1040  307s
+288/1040  345s
+320/1040  382s
+352/1040  419s
+384/1040  456s
+416/1040  493s
+448/1040  531s
+480/1040  568s
+512/1040  605s
+544/1040  641s
+576/1040  678s
+608/1040  715s
+640/1040  752s
+672/1040  789s
+704/1040  828s
+736/1040  864s
+768/1040  888s
+800/1040  909s
+832/1040  930s
+864/1040  951s
+896/1040  972s
+928/1040  993s
+960/1040  1014s
+992/1040  1035s
+1024/1040  1055s
+1040/1040  1065s
+features (1040, 768) -> features.npz

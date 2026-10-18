@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+demo/features_kaggle.npz
+demo/results_kaggle.*

@@ -12,6 +12,10 @@ python 03_train_compare.py     # Linear vs VIB (beta quét) -> bảng AP/ACC + r
 python 04_umap_viz.py [beta]   # UMAP kiểu Hình 3 + silhouette -> umap.png
 ```
 
+**Hoặc dùng notebook:** mở `VIBNet_demo.ipynb` từ thư mục `demo/` (VS Code hoặc Jupyter) rồi Run All.
+Notebook gói cả 4 bước, kèm giải thích, xem ảnh mẫu, đường loss và thử dự đoán từng ảnh. Nếu đã có `data/` và
+`features.npz` thì nó dùng lại, chạy hết khoảng 2 phút trên CPU. Notebook đã lưu sẵn output của lần chạy gần nhất.
+
 Lưu ý: chạy các script từ thư mục khác `demo/` hoặc thư mục `VIBAIGCDetect/` đều được, nhưng
 đừng đặt file lạ cạnh script (Python nạp module từ thư mục của script).
 

@@ -1,0 +1,3 @@
+[submodule "VIBAIGCDetect"]
+	path = VIBAIGCDetect
+	url = https://github.com/oceanzhf/VIBAIGCDetect.git

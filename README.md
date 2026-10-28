@@ -51,7 +51,12 @@ Hàm mất mát: `Loss = BCE (phân loại đúng) + β × KL (phạt nếu gi�
     └── results.png, umap.png ← kết quả
 ```
 
-**Code gốc của tác giả** chỉ có phần **kiểm thử**, không có code huấn luyện và không có hàm mất mát KL. Phần huấn luyện trong `demo/` do mình viết lại theo công thức trong bài. Kiến trúc mô hình giống hệt file `VIBAIGCDetect/models/clip_models.py`.
+**Code gốc của tác giả** chỉ có phần **kiểm thử**, không có code huấn luyện và không có hàm mất mát KL. Link tải **pretrained weights** trên Google Drive trong README của tác giả cũng **bị khoá** (trả về HTTP 401). Vì vậy phần huấn luyện trong `demo/` do mình viết lại theo công thức (6) trong bài.
+
+Để chứng minh phần tự viết khớp với code gốc, notebook Kaggle:
+- import trực tiếp class `CLIPModel` từ `VIBAIGCDetect/models/clip_models.py`;
+- nạp trọng số vừa huấn luyện (`fc_1`, `fc_2`, `fc_3`, `decode`) vào `CLIPModel` bằng `load_state_dict`, chạy thử 1 batch và so sánh đầu ra (trùng khớp tới sai số làm tròn);
+- lưu checkpoint `vibnet_clipmodel.pth` đúng định dạng mà `main.py` của tác giả đọc.
 
 ---
 
@@ -78,6 +83,9 @@ So sánh hai "bộ não" đặt sau CLIP:
 1. Lên [kaggle.com](https://www.kaggle.com) → **Create → New Notebook → File → Import Notebook** → chọn `demo/VIBNet_kaggle.ipynb`.
 2. Bên phải: **Accelerator = GPU T4**, **Internet = On**.
 3. Bấm **Run All**. Notebook tự cài thư viện, tự tải code tác giả và dữ liệu (~8GB).
+4. Chạy xong: **File → Download Notebook** để lấy file `.ipynb` có đầy đủ output (log, bảng AP/ACC, biểu đồ) cho báo cáo. Các file kết quả nằm ở tab **Output** (`/kaggle/working`).
+
+Notebook Kaggle dùng 2000 ảnh/lớp, **5 bản augment blur/JPEG** cho mỗi ảnh, huấn luyện batch 256 + cosine LR + **KL warm-up 10 epoch** + early stopping, và vẽ UMAP trên tập **Unseen**.
 
 ### Cách B — Máy cá nhân (CPU)
 ```bash
@@ -115,6 +123,8 @@ AP (%) — càng cao càng tốt, **50% = đoán bừa**:
 - ❌ Loại AI khác hẳn (ADM, VQDM, BigGAN): gần như đoán bừa. Đây đúng là vấn đề bài báo muốn giải quyết.
 - ➖ VIB nhỉnh hơn Linear 1–3 điểm, nhưng mức chênh xấp xỉ sai số, và β > 0 không tốt hơn β = 0. Demo nhỏ này **chưa chứng minh được** tác dụng của nút thắt thông tin.
 - Lý do chính: dữ liệu ít hơn bài khoảng **80 lần** và không dùng augmentation. Bản Kaggle khắc phục một phần (nhiều dữ liệu hơn, có augmentation blur/JPEG).
+
+**Vì sao AP và ACC có thể chênh nhau?** ACC tính ở ngưỡng cứng 0.5 (theo bài báo). Do **lệch miền phân phối (domain shift)** giữa SD15 và các họ mô hình khác như GAN, xác suất đầu ra trên generator lạ bị dịch khỏi mốc 0.5. Mô hình có thể vẫn xếp ảnh giả cao hơn ảnh thật (AP khá) nhưng phần lớn ảnh nằm dưới 0.5 (ACC thấp). Vì thế nên dựa vào **AP** (không phụ thuộc ngưỡng) để đánh giá khả năng phân tách của VIB-Net.
 
 ---
 

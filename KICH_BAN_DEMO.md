@@ -140,10 +140,13 @@ Mỗi bước gồm 3 phần:
 ## Câu hỏi có thể gặp và gợi ý trả lời
 
 **❓ Tại sao không dùng code của tác giả để huấn luyện?**
-→ Repo tác giả chỉ có code kiểm thử, không có hàm mất mát KL và không có vòng lặp huấn luyện. Em viết lại theo công thức (6) trong bài, kiến trúc giữ giống hệt code tác giả.
+→ Repo tác giả chỉ có code kiểm thử, không có hàm mất mát KL và không có vòng lặp huấn luyện; link tải pretrained weights trên Google Drive cũng bị khoá (HTTP 401). Notebook Kaggle tự kiểm tra và in ra cả hai điều này ở mục 1. Em viết lại phần huấn luyện theo công thức (6) trong bài, rồi ở cuối mục 5 nạp trọng số đã huấn luyện vào **chính class `CLIPModel` của tác giả** và chạy thử: kết quả trùng khớp, chứng minh kiến trúc tương thích 100% với code gốc.
 
 **❓ AP là gì? Sao không chỉ dùng độ chính xác?**
 → AP (Average Precision) đo khả năng xếp ảnh giả lên trên ảnh thật, **không phụ thuộc ngưỡng** 0.5. Độ chính xác (ACC) thì phụ thuộc ngưỡng. Bài báo dùng cả hai, em cũng vậy.
+
+**❓ Sao có generator AP khá mà ACC lại thấp?**
+→ ACC tính ở ngưỡng cứng 0.5 theo bài báo. Do lệch miền phân phối (domain shift) giữa SD15 và các họ khác như GAN, xác suất đầu ra trên ảnh lạ bị dịch khỏi mốc 0.5: mô hình vẫn xếp ảnh giả cao hơn ảnh thật (AP khá) nhưng nhiều ảnh giả có P(giả) < 0.5 nên bị tính là sai. Vì vậy cần xem AP, chỉ số không phụ thuộc ngưỡng.
 
 **❓ Tại sao 50% là đoán bừa?**
 → Tập kiểm thử có số ảnh thật bằng số ảnh giả (1:1). Tung đồng xu thì đúng 50%.
